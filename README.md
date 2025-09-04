@@ -1,16 +1,28 @@
 Selva Forma E. I.
+
 Source File : https://learn.microsoft.com/en-us/power-bi/create-reports/sample-financial-download
+
 Author : Aroul SELVARADJOU
+
 -----------------------------------------------------------------------------------------------------
 Description of source file :
+
 Data Summary
+
 Number of rows: 700
+
 Available columns:
+
 Segment, Country, Product, Discount Band, Units Sold, Manufacturing Price, Sale Price, Gross Sales, Discounts, Sales, COGS, Profit, Date, Month Number, Month Name, Year
+
 Years covered: 2013, 2014
+
 Countries represented: Canada, Germany, France, Mexico, United States of America
+
 Market segments: Government, Midmarket, Channel Partners, Enterprise, Small Business
+
 Products: Carretera, Montana, Paseo, Velo, VTT, Amarilla
+
 -----------------------------------------------------------------------------------------------------
 
 Description of all the report pages : 
