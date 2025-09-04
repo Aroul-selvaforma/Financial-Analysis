@@ -158,9 +158,10 @@ table financials
 				    financials_Table = Source{[Item="financials",Kind="Table"]}[Data],
 				    #"Type modifié" = Table.TransformColumnTypes(financials_Table,{{"Segment", type text}, {"Country", type text}, {"Product", type text}, {"Discount Band", type text}, {"Units Sold", type number}, {"Manufacturing Price", Int64.Type}, {"Sale Price", Int64.Type}, {"Gross Sales", type number}, {"Discounts", type number}, {"Sales", type number}, {"COGS", type number}, {"Profit", type number}, {"Date", type date}, {"Month Number", Int64.Type}, {"Month Name", type text}, {"Year", Int64.Type}}),
 				    #"Type Manual Modification" = Table.TransformColumnTypes(#"Type modifié",{{"Units Sold", Int64.Type}, {"Manufacturing Price", Currency.Type}, {"Sale Price", Currency.Type}, {"Gross Sales", Currency.Type}, {"Discounts", Currency.Type}, {"Sales", Currency.Type}, {"COGS", Currency.Type}, {"Profit", Currency.Type}}),
-				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type Manual Modification",{"Month Number", "Month Name", "Year"})
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type Manual Modification",{"Month Number", "Month Name", "Year"}),
+				    #"Valeur remplacée" = Table.ReplaceValue(#"Colonnes supprimées","United States of America","United States",Replacer.ReplaceText,{"Country"})
 				in
-				 #"Colonnes supprimées"
+				 #"Valeur remplacée"
 
 	annotation PBI_NavigationStepName = Navigation
 
