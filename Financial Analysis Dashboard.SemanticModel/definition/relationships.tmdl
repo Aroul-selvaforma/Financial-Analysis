@@ -1,0 +1,4 @@
+relationship 661c98ff-499c-b3f3-2a39-330443c44a93
+	fromColumn: financials.Date
+	toColumn: Date.Date
+

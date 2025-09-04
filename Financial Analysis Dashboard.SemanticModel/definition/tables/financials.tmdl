@@ -1,0 +1,168 @@
+table financials
+	lineageTag: b707b3b5-258a-4eb1-b1a0-a67e14aead9b
+
+	measure 'Total Sales' = SUM(financials[Sales])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 334617dc-7390-458a-99fb-468055317171
+
+	measure 'Total Profit' = SUM(financials[Profit])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 981357ee-c24f-4c3e-b3fb-3a23fba800d9
+
+	measure 'Total units Sold' = SUM(financials[Units Sold])
+		formatString: 0
+		lineageTag: f1da4724-74f4-447a-bfe3-1ae9057555b8
+
+	measure 'Total Gross Sales' = SUM(financials[Gross Sales])
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 4ecb78d2-57de-41dd-93ba-b3b82732331b
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	measure 'Total Discounts' = SUM(financials[Discounts])
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 325e8765-d016-4f60-a587-e8d0cad27ac2
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	measure 'Profit margin' = DIVIDE([Total Profit],[Total Gross Sales],0)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 2307fa1b-8741-4421-823c-894c83088d75
+
+	column Segment
+		dataType: string
+		lineageTag: 7deb378a-b74a-425c-a4c3-fe3f27c18c4d
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: c55158b4-08ab-484d-b585-8eb47c7880cd
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product
+		dataType: string
+		lineageTag: ea0a29d5-2b09-41a8-ac69-1fc56d6b9802
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discount Band'
+		dataType: string
+		lineageTag: 2eb5544e-8375-4783-8f8f-48992d74c2b1
+		summarizeBy: none
+		sourceColumn: Discount Band
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Units Sold'
+		dataType: int64
+		lineageTag: 84de6e59-51af-4154-ab34-9f460c27e1ee
+		summarizeBy: sum
+		sourceColumn: Units Sold
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Manufacturing Price'
+		dataType: decimal
+		formatString: 0
+		lineageTag: 5d5c197c-19b6-438b-9aa1-ab63290998a7
+		summarizeBy: sum
+		sourceColumn: Manufacturing Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sale Price'
+		dataType: decimal
+		formatString: 0
+		lineageTag: 3a3136c9-f41d-4675-a097-5c4def7fa2e5
+		summarizeBy: sum
+		sourceColumn: Sale Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gross Sales'
+		dataType: decimal
+		lineageTag: 65e478b7-bac7-4a0d-8622-a91d1b9e450b
+		summarizeBy: sum
+		sourceColumn: Gross Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Discounts
+		dataType: decimal
+		lineageTag: 35c7db5c-bcd4-4543-8424-27eee37edfd4
+		summarizeBy: sum
+		sourceColumn: Discounts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sales
+		dataType: decimal
+		lineageTag: a995d0f8-208a-4674-a37c-95fabd4f8e15
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COGS
+		dataType: decimal
+		lineageTag: 8d34724a-2328-4a73-89ea-81b96e167d94
+		summarizeBy: sum
+		sourceColumn: COGS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Profit
+		dataType: decimal
+		lineageTag: 3879fcad-95ab-40a4-9294-2d242ea1615b
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b3dcfb2f-946b-4539-aa7a-55641d342d1d
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition financials = m
+		mode: import
+		source =
+				let
+				 Source = Excel.Workbook(File.Contents("C:\Program Files\WindowsApps\Microsoft.MicrosoftPowerBIDesktop_2.146.1254.0_x64__8wekyb3d8bbwe\bin\SampleData\Financial Sample.xlsx"), null, true),
+				    financials_Table = Source{[Item="financials",Kind="Table"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(financials_Table,{{"Segment", type text}, {"Country", type text}, {"Product", type text}, {"Discount Band", type text}, {"Units Sold", type number}, {"Manufacturing Price", Int64.Type}, {"Sale Price", Int64.Type}, {"Gross Sales", type number}, {"Discounts", type number}, {"Sales", type number}, {"COGS", type number}, {"Profit", type number}, {"Date", type date}, {"Month Number", Int64.Type}, {"Month Name", type text}, {"Year", Int64.Type}}),
+				    #"Type Manual Modification" = Table.TransformColumnTypes(#"Type modifié",{{"Units Sold", Int64.Type}, {"Manufacturing Price", Currency.Type}, {"Sale Price", Currency.Type}, {"Gross Sales", Currency.Type}, {"Discounts", Currency.Type}, {"Sales", Currency.Type}, {"COGS", Currency.Type}, {"Profit", Currency.Type}}),
+				    #"Colonnes supprimées" = Table.RemoveColumns(#"Type Manual Modification",{"Month Number", "Month Name", "Year"})
+				in
+				 #"Colonnes supprimées"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,21 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_QueryOrder = ["financials"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table financials
+ref table Date
+
+ref cultureInfo fr-FR
+

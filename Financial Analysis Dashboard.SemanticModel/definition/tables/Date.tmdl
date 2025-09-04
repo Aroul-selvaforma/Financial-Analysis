@@ -1,0 +1,70 @@
+table Date
+	lineageTag: 2692a421-553c-4181-8ea0-75271edde8d9
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Short Date
+		lineageTag: 1a7b1835-b2fb-4b91-a8b0-2b7fa8211316
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: ddbdd0d0-f4f8-436a-826b-e9eae028167c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		lineageTag: 9549bf72-7646-4cf2-a9ca-02cc38c2529e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Name]
+		sortByColumn: 'Month No'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 8cb32fc5-d810-46a3-a335-4fe0e34da290
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month year'
+		lineageTag: 6549a121-4db9-43ea-9c4f-51dae88a6502
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month No'
+		formatString: 0
+		lineageTag: ac51ba7d-5376-4411-bc8f-dfd59c0e80ac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month No]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(CALENDARAUTO(),
+				                    "Year",YEAR([Date]),
+				                    "Quarter", "Quarter "&QUARTER([Date]),
+				                    "Month Name", FORMAT([Date], "mmmm","en-us"),
+				                    "Month year", FORMAT([Date], "mmmm-yyyy","en-us"),
+				                    "Month No", MONTH([Date])
+				)
+
+	annotation PBI_Id = 7eb0cfc0651042db87a0f42c42d2e336
+
