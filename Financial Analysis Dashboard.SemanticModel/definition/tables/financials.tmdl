@@ -10,7 +10,7 @@ table financials
 		lineageTag: 981357ee-c24f-4c3e-b3fb-3a23fba800d9
 
 	measure 'Total units Sold' = SUM(financials[Units Sold])
-		formatString: 0
+		formatString: #,0
 		lineageTag: f1da4724-74f4-447a-bfe3-1ae9057555b8
 
 	measure 'Total Gross Sales' = SUM(financials[Gross Sales])
