@@ -29,38 +29,57 @@ Description of all the report pages :
 1. Global Sales Performance Dashboard
 Purpose: Track overall sales and profitability
 Visuals:
-Total Sales, Total Profit, Units Sold (KPI cards)
-Monthly Sales Trend (Line chart)
-Sales by Country (Map or bar chart)
-Sales by Segment (Pie or bar chart)
 
-2. Product Profitability Dashboard
+Total Sales, Total Profit, Units Sold (KPI cards)
+
+Monthly Sales Trend (bar chart)
+
+Sales by Country (Map chart)
+
+Sales by Segment (Pie chart)
+
+3. Product Profitability Dashboard
 Purpose: Identify the most profitable products
 Visuals:
-Profit by Product (Bar chart)
-Gross Sales vs Profit (Stacked bar or combo chart)
-Discount Impact on Profit (Scatter plot or line chart)
 
-3. Market Segment Analysis Dashboard
+Profit by Product (Bar chart)
+
+Gross Sales vs Profit (Stacked bar )
+
+Discount Impact on Profit (Scatter plot )
+
+5. Market Segment Analysis Dashboard
 Purpose: Understand customer behavior by segment
 Visuals:
-Sales by Segment (Bar chart)
-Preferred Products per Segment (Matrix or stacked bar)
-Profit Margin by Segment (Gauge or KPI)
 
-4. Geographical Sales Dashboard
+Sales by Segment (Bar chart)
+
+Average Profit Margin by Segment (KPI)
+
+Preferred Products per Segment ( bar chart )
+
+7. Geographical Sales Dashboard
 Purpose: Compare performance across countries
 Visuals:
-Sales by Country (Map visual)
-Profit by Country (Bar chart)
-Product Distribution by Country (Treemap or stacked bar)
 
-5. Discount Analysis Dashboard
+Profit by Country (Bar chart)
+
+Sales by Country (Map visual)
+
+Units Sold by Country and Segment (Stacked bar)
+
+9. Discount Analysis Dashboard
 Purpose: Evaluate the impact of discounts on revenue
 Visuals:
-Discounts by Product (Bar chart)
-Sales vs Discounts (Scatter plot)
-Average Discount Rate by Segment (Line or KPI)
+
+Profit by Discount band (Bar chart)
+
+Distribution of Discount Bands across Products (Bar chart)
+
+Discounts per Product (Bar chart)
+
+Discounts per Segment (Bar chart)
+
 
 ----------------------------------------------------------------------------------------------------------
 
