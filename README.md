@@ -38,7 +38,7 @@ Sales by Country (Map chart)
 
 Sales by Segment (Pie chart)
 
-3. Product Profitability Dashboard
+2. Product Profitability Dashboard
 Purpose: Identify the most profitable products
 Visuals:
 
@@ -48,7 +48,7 @@ Gross Sales vs Profit (Stacked bar )
 
 Discount Impact on Profit (Scatter plot )
 
-5. Market Segment Analysis Dashboard
+3. Market Segment Analysis Dashboard
 Purpose: Understand customer behavior by segment
 Visuals:
 
@@ -58,7 +58,7 @@ Average Profit Margin by Segment (KPI)
 
 Preferred Products per Segment ( bar chart )
 
-7. Geographical Sales Dashboard
+4. Geographical Sales Dashboard
 Purpose: Compare performance across countries
 Visuals:
 
@@ -68,7 +68,7 @@ Sales by Country (Map visual)
 
 Units Sold by Country and Segment (Stacked bar)
 
-9. Discount Analysis Dashboard
+5. Discount Analysis Dashboard
 Purpose: Evaluate the impact of discounts on revenue
 Visuals:
 
